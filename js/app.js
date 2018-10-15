@@ -1,9 +1,15 @@
 /* ===== app.js ======
 =   brings it all together
 =========================== */
-const cardsPerPage = 24;  // # of cards to display
+
+// fetch('https://randomuser.me/api')
+//     .then(response => response.json())
+//     .then(data => data.results[0]);
+
+
+const cardsPerPage = 12;  // # of cards to display
 
 let cardInfo; // define the cardInfo var.
 
 cardInit(cardsPerPage); //inits the cards
-searchField();
+searchField(); // inits the search field

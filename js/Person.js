@@ -3,21 +3,18 @@
 =   the fetch api from https://randomuser.me/
 ============================================= */
 
-// =============== uncomment to enable fetch API ===============
-// fetch('https://randomuser.me/api/')
-//     .then(response => response.json());
 
 class Person {
-    constructor() {
+    constructor(firstName, lastName, email, city, state, phone, address, dob, img) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.city = city;
+        this.state = state;
         this.phone = phone;
         this.address= address;
-        this.birthday = birthday;
+        this.dob = dob;
+        this.img = img
     };
-
-    //methods here!
 
 }

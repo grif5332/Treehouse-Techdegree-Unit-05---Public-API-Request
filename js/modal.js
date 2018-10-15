@@ -3,9 +3,13 @@
 =   into the DOM.  Also, adds functionality
 =   to 'X', 'PREV', and 'NEXT' buttons.
 ======================================== */
-let modal = (cardInfo) => { 
+let modal = (cardInfo, modalData) => { 
     //creates the modal pop-up window and populates it.
     let modalInfo = cardInfo;
+    //let modalStuff = modalData;
+console.log(cardInfo);
+console.log(modalData);
+
     let body = document.getElementsByTagName('body');  // gets <body>
     // console.log(body[0]);
     //console.log(`card ${modalInfo} clicked`);
