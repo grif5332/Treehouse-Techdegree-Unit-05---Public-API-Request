@@ -43,8 +43,8 @@ let modal = (cardInfo) => {
     // === Modal: 'PREV' btn ===
     document.getElementById('modal-prev').addEventListener('click', () => {
         if (cardInfo === 0) {  // ++++++ Maybe make this if(cardInf !== 0) and no else? check PLZ!+++++
-            document.getElementById('modal-prev').disabled = 'true';
-            document.getElementById('modal-prev').style.visibility = "hidden";
+            document.getElementById('modal-prev').disabled = 'true'; // disables the button
+            document.getElementById('modal-prev').style.visibility = "hidden"; // hides the button
         } else {
             cardInfo--; // if cardInfo is greater than 0, remove 1
             modalRemove[0].outerHTML = ""; // removes the 'old' modal
@@ -55,8 +55,8 @@ let modal = (cardInfo) => {
     // === Modal: 'NEXT' btn === ++++Could maybe use a little work?+++++
     document.getElementById('modal-next').addEventListener('click', () => {
         if (cardInfo === (cardsPerPage - 1)) {  // checks if the cardInfo is below the # of cards allowed.
-            document.getElementById('modal-next').disabled = 'true';
-            document.getElementById('modal-next').style.visibility = "hidden";
+            document.getElementById('modal-next').disabled = 'true'; // disables the button
+            document.getElementById('modal-next').style.visibility = "hidden"; // hides the button
         } else {
             cardInfo++; // it its lower than then # of cards allowed, add 1
             modalRemove[0].outerHTML = ""; // removes the 'old' modal
