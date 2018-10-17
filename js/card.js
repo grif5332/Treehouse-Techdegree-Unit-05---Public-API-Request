@@ -2,7 +2,7 @@
 *   Creates the card for use on
 *   the index.html file.
 *=================================== */
-
+/* === Global variables === */
 let personFirst = [];
 let personLast = [];
 let personEmail = [];
@@ -13,7 +13,7 @@ let personStreet = [];
 let personDOB = [];
 let personImg = [];
 
-
+/* === Creates Initial Employee Cards === */
 let cardInit = (numOfCardsPerPage) => {
     for (let i = 0; i < numOfCardsPerPage; i++){
         let card = document.createElement('div'); // creates a <div>
@@ -21,12 +21,13 @@ let cardInit = (numOfCardsPerPage) => {
         card.className = 'card';  // adds the 'card' class to each card.
         
         fetch(`https://randomuser.me/api/?results=${cardsPerPage}&nat=us,gb`) //fetches only EN and GB people and list # = cardPerPage's 
-            .then(response => response.json())
-            .then(data => { // ==========  console.log(data.results[0]);
-                let personData = data.results[0];
+            .then(response => response.json()) // gets the JSON data from the fetch
+            .then(data => {
+                let personData = data.results[0];  //adds the result of the fetched data to personData var
 
-        //  Person (firstName, lastName, email, city, state, phone, address, birthday, img)
-                let person = new Person(   
+                /*  Person (firstName, lastName, email, city, state, phone, address, birthday, img)
+                generates a new person for each iteration. */
+                let person = new Person(
                     personData.name.first,
                     personData.name.last,
                     personData.email,
@@ -38,6 +39,7 @@ let cardInit = (numOfCardsPerPage) => {
                     personData.picture.large
                     );
 
+                    /* These push the data from the newly created person to the appropriate global scope array */
                     personFirst.push(person.firstName);
                     personLast.push(person.lastName);
                     personEmail.push(person.email);
@@ -59,10 +61,8 @@ let cardInit = (numOfCardsPerPage) => {
                     </div>`;
 
                 document.getElementById('gallery').appendChild(card);  // append the card(s) to the gallery element
-                card.setAttribute('value', i);
-                card.setAttribute('onclick', `modal(${cardInfo})`); //  adds the onclick="modal(cardInfo)" to the card element        
-            });
-
-    };
-    
-}
+                card.setAttribute('value', i); // adds a value for use 
+                card.setAttribute('onclick', `modal(${cardInfo})`); //  adds the onclick="modal(cardInfo)" to the card element  
+        }); // end fetch() - starts@line23
+    }; // end for loop - starts@line18 
+}; // end cardInit() - starts@line17
